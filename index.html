@@ -10,16 +10,19 @@
 <div id="break">
 </div>
 <div id="Sea Ice Thickness">
+  <h1>EGU 2021</h1>
+  <h2>Surface reflectivity in polar regions retrieved from TDS-1 mission</h2>
+  This page is created as additional information for the <a href="https://www.egu21.eu/">EGU 2021</a>.
 <h2>Sea Ice Thickness</h2>
 <p>There are different variables useful for scientists. While Extent shows the covered area, the Concentration shows area of sea ice relative to the total at a given point in the ocean. We want to focus today on the Sea ice Thickness. It is the depth between the ice-sea interface and the layer of snow on top.</p>
 <figure>
-  <img src="seaicetypes3.png" alt="hi" style="width:100%">/>
+  <img src="seaicetypes3.png" alt="hi" height=300>
   <figcaption>adapted from <a href="uci.edu">uci.edu</a></figcaption>
 </figure> 
 <h2>TechDemoSat-1</h2>
 <p>The here used satellite TechDemoSat-1, built by the british company SSTL, was launched in 2014. It’s payload contains multiple GNSS receiver antennas: The nadir antenna is seen on the image with the twirling elements. It is characterized by a high gain and also the left-handed circular polarization, which we usually can expect from our reflected GPS signal at high angles. The direct signal, denoted on the right figure with dd, is received by a single patch antenna on the zenith side. It’s right-handed circular polarization corresponds to the polarization of the direct GPS signal. On the right figure you can also see the two angles important for this presentation: The nadir angle Beta of the antenna and the elevation angle Alpha of the specular point.</p>
 <figure>
-  <img src="TechDemoSat1.jpg" alt="Trulli" style="width:100%">>
+  <img src="TechDemoSat1.jpg" alt="Trulli" style="width:100%">
   <figcaption>TechDemoSat-1, credits: SSTL</figcaption>
 </figure> 
 <h2>Reflectivity</h2>  
@@ -34,13 +37,13 @@
 
 <p>After calculation, we can now subtract the receiver antenna gain and the Free-Space Path loss for each direct and reflected signal. I grayed out the area, which will be dropped later anyway because of the angle filter I mentioned before.</p>
 <figure>
-  <img src="slaveGainTracks.png" alt="Trulli" style="width:100%">>
+  <img src="slaveGainTracks.png" alt="Trulli" style="width:100%">
 </figure> 
 <h2>Results</h2>
   <p>The final results should get checked for their reliability, so we also use SMOS Sea Ice Thickness Information by University Hamburg. On the map on the left SMOS is represented by the blue and white raster data, the red and white dots show the reflectivity. The right figure is the correlation plot. Even though real in-situ Ground Truth Data seems not available, SMOS ice thickness estimation indicates promising results for PRN 15 over Hudson Bay. For thinner sea ice, the reflectivity shows expected higher values. The thicker the ice, the less it reflects, which can be seen in the darker red points on the map and also on the correlation plot on the right side.</p>
   <p>PRN 13 was originally filtered out because of high nadir angle at receiver antenna, but is plotted also for comparison and you can sense the fluctuating values of gain uncertainties.</p>
   <figure>
-  <img src="PowerRatio2020.jpg" alt="Trulli" style="width:100%">>
+  <img src="PowerRatio2020.jpg" alt="Trulli" style="width:100%">
   <figcaption>Calculated power ratio</figcaption>
 </figure> 
   <h2>Discussion of further error terms</h2>
