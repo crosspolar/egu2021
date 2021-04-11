@@ -68,3 +68,14 @@ list-style-type:'~ ';
 body li{
 margin-bottom:0.7vw;
 }
+
+.typewriter p {
+  font-family: monospace;
+  letter-spacing: .17em;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .17em solid pink;
+  animation: typing 3.5s steps(30, end), blinking-cursor .5s step-end infinite;
+}
+
