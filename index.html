@@ -25,3 +25,14 @@
 <h1>Reflectivity</h1>  
 <p>So, how much signal power is expected to be reflected? This depends for GPS and smooth surfaces on the angle of reflection and the dielectric property of the surface. The relative permittivity as dielectric property of a material depends on the internal components of the medium and their distribution.  These properties change with the age of the sea ice, which is why sea ice can be classified as you can see here as  for example new sea ice, First-Year Sea Ice and so on. When the nadir antenna receives left-handed circular polarization as in our case, at larger angles seawater has the highest reflection. The older the sea ice gets, the less it reflects.</p>
 <p>So the sea water we expect to reflect a lot due to it‘s high relative permittivity. The older and thicker the ice, the lower the reflectivity is expected.</p>
+<p>From TDS-1 data, reflectivity over smooth surfaces is calculated as the ratio of reflected and direct signal power.</p>
+<h1>Correction</h1>  
+<p>For correction, antenna gain and path loss have to be calculated.</p>
+<p>The gain pattern describes the directivity of the antenna. That is, where the signal is amplified and where it is attenuated. These patterns are determined by laboratory measurements provided by the manufacturers. Especially the nadir antenna gain is characterized by high gains in boresight and inhomogeneous pattern.</p>
+
+<p>The Free-Space Path loss depends on carrier frequency of the signal and the distance between transmitter and receiver. The distance between GPS satellite and TDS-1 has been calculated by using a model of earth’s surface as the well known positions of both satellites.</p>
+
+<p>After calculation, we can now subtract the receiver antenna gain and the Free-Space Path loss for each direct and reflected signal. I grayed out the area, which will be dropped later anyway because of the angle filter I mentioned before.</p>
+<figure>
+  <img src="slaveGainTracks.png" alt="Trulli" style="width:100%">
+</figure> 
