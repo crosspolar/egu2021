@@ -13,9 +13,10 @@
   <h1>EGU 2021</h1>
   <h2>Surface reflectivity in polar regions retrieved from TDS-1 mission</h2>
   <p>
-  This page is created as additional information for the <a href="https://www.egu21.eu/">EGU 2021</a>. 
+  This page is created as additional information for the <a href="https://www.egu21.eu/">EGU 2021</a>.  
   In current times of a changing global climate, a special interest is focused on the large-scale recording of sea ice. 
   Bi-statically reflected signals of Global Navigation Satellite Systems (GNSS) could play an important role in fulfilling the task. 
+  See <a href="https://meetingorganizer.copernicus.org/EGU21/EGU21-13036.html">here</a> for program description.
   </p>
 <h2>Sea Ice Thickness</h2>
 <p>
@@ -32,9 +33,8 @@
 <p>
   The here used satellite TechDemoSat-1, built by the british company SSTL, was launched in 2014. 
   It’s payload contains multiple GNSS receiver antennas: 
-  The nadir antenna is seen on the image with the twirling elements and is characterized by a high gain and also the left-handed circular polarization, which we usually can expect from our reflected GPS signal at high angles. 
-  The direct signal is received by a single patch antenna on the zenith side. 
-  It’s right-handed circular polarization corresponds to the polarization of the direct GPS signal. 
+   It includes a down-looking antenna for the reflected as well as an up-looking antenna dedicated to receive the direct signal. 
+  The raw data, provided by the manufacturer SSTL, were pre-processed by IEEC/ICE-CSIC to derive georeferenced signal power values.
 </p>
 <figure>
   <img src="TechDemoSat1.jpg" alt="Trulli" style="width:100%">
@@ -42,13 +42,13 @@
 </figure> 
 <h2>Reflectivity</h2>  
 <p>
-  Jow much signal power is expected to be reflected? 
-  This depends for GPS and smooth surfaces on the angle of reflection and the dielectric property of the surface. 
+  The amount of signal being reflected depends for GPS and smooth surfaces on the angle of reflection and the dielectric property of the surface. 
   The relative permittivity as dielectric property of a material depends on the internal components of the medium and their distribution.  
-  These properties change with the age of the sea ice, which is why sea ice can be classified as you can see here as for example new sea ice, First-Year Sea Ice and so on. 
-  When the nadir antenna receives left-handed circular polarization as in our case, at larger angles seawater has the highest reflection. 
-  The older the sea ice gets, the lower the reflectivity is expected, i.e. it reflects less</p>
+  When getting older, sea ice tends go get thicker. 
+  Because of decreasing salinity, i.e. less permittivity, as well as relatively higher surface roughness of older ice, it can be assumed that reflected signal strength decreases with increasing SIT.
+  That is why sea ice can be classified into, for example, new sea ice, First-Year Sea Ice and so on. </p>
 <p>From TDS-1 data, reflectivity over smooth surfaces is calculated as the ratio of reflected and direct signal power.</p>
+<p>The reflection data used were recorded in the years 2015 and 2016 by the TDS-1 satellite over the Arctic and Antarctic.</p>
 <h2>Correction</h2>  
 <p>For correction, antenna gain and path loss have to be calculated.</p>
 <p>
@@ -59,12 +59,14 @@
 </p>
 
 <p>
-  The Free-Space Path loss depends on carrier frequency of the signal and the distance between transmitter and receiver. 
-  The distance between GPS satellite and TDS-1 has been calculated by using a model of earth’s surface as the well known positions of both satellites
+  The Free-Space Path loss (FSPL) depends on carrier frequency of the signal and the distance between transmitter and receiver. 
+  The distance between GPS satellite and TDS-1 has been calculated by using a model of earth’s surface as the well known positions of both satellites.
+  Differences of nadir and zenith antenna FSPL and gain show influence of up to 6 dB and −9 dB to 9 dB respectively on the recorded signal strength.
 </p>
 
-<p>After calculation, we can now subtract the receiver antenna gain and the Free-Space Path loss for each direct and reflected signal. 
-  The grayed out area represents the values later filtered because of the angle filter I mentioned before.</p>
+<p>
+  After calculation, we can now eliminate the receiver antenna gain and the Free-Space Path loss for each direct and reflected signal. 
+  The grayed out area in the following plot represents the values later filtered because of the angle filter I mentioned before.</p>
 <figure>
   <img src="slaveGainTracks.png" alt="Trulli" style="width:100%">
 </figure> 
@@ -84,7 +86,8 @@
   <figcaption>Calculated power ratio</figcaption>
 </figure> 
   <h2>Discussion of further error terms</h2>
-  <p>There are further unmodelled error terms. 
+  <p>
+    There are further unmodelled error terms. 
     One of them is the inaccuracy in the calculation of the gain resulting from the uncertainty in the attitude determination of the satellite. 
     By excluding the high nadir angles this danger could be limited. 
     In future, however, it would be desirable to use these angle ranges too.  
