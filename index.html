@@ -17,6 +17,7 @@
       See <a href="https://meetingorganizer.copernicus.org/EGU21/EGU21-13036.html">here</a> for program description.
   In current times of a changing global climate, a special interest is focused on the large-scale recording of sea ice. 
   Bi-statically reflected signals of Global Navigation Satellite Systems (GNSS) could play an important role in fulfilling the task. 
+  Within this project, sensitivity of spacebourne GNSS-Reflectometry (GNSS-R) to sea ice properties is evaluated.
   </p>
   <p>How to cite: </p>
   
@@ -39,7 +40,7 @@
   The here used satellite TechDemoSat-1, built by the british company SSTL, was launched in 2014. 
   It’s payload contains multiple GNSS receiver antennas: 
    It includes a down-looking antenna for the reflected as well as an up-looking antenna dedicated to receive the direct signal. 
-  The raw data, provided by the manufacturer SSTL, were pre-processed by IEEC/ICE-CSIC to derive georeferenced signal power values.
+  The raw data, provided by the manufacturer SSTL, were pre-processed by <a href="https://www.ice.csic.es/en/">IEEC/ICE-CSIC</a> to derive georeferenced signal power values.
 </p>
 <figure>
   <img src="TechDemoSat1.jpg" alt="TechDemoSat-1" style="width:100%">
@@ -51,46 +52,48 @@
   The relative permittivity as dielectric property of a material depends on the internal components of the medium and their distribution.  
   When getting older, sea ice tends go get thicker. 
   Because of decreasing salinity, i.e. less permittivity, as well as relatively higher surface roughness of older ice, it can be assumed that reflected signal strength decreases with increasing SIT.
-  That is why sea ice can be classified into, for example, new sea ice, First-Year Sea Ice and so on. </p>
-<p>From TDS-1 data, reflectivity over smooth surfaces is calculated as the ratio of reflected and direct signal power.</p>
-<p>The reflection data used were recorded in the years 2015 and 2016 by the TDS-1 satellite over the Arctic and Antarctic.</p>
+  That is why sea ice for microwave use cases is classified into, for example, new sea ice, First-Year Sea Ice and so on. </p>
+<p>The reflection data used were recorded in the years 2015 and 2016 by the TDS-1 satellite over the Arctic and Antarctic.
+  From TDS-1 data, reflectivity over smooth surfaces is calculated as the ratio of reflected and direct signal power.</p>
+<p>R = p_r/p_d</p>
 <h2>Correction</h2>  
-<p>For correction, antenna gain and path loss have to be calculated.</p>
+<p>The signal has to be corrected for Free-Space Path loss (FSPL) and antenna gain</p>
 <p>
   The gain pattern describes the directivity of the antenna. 
-  That is, where the signal is amplified and where it is attenuated. 
-  These patterns are determined by laboratory measurements provided by the manufacturers. 
+  These patterns are determined by laboratory measurements provided by the manufacturers as a function of elevation and azimuth. 
   Especially the nadir antenna gain is characterized by high gains in boresight and inhomogeneous pattern.
 </p>
 
 <p>
-  The Free-Space Path loss (FSPL) depends on carrier frequency of the signal and the distance between transmitter and receiver. 
-  The distance between GPS satellite and TDS-1 has been calculated by using a model of earth’s surface as the well known positions of both satellites.
+  The Free-Space Path loss (FSPL) depends on carrier frequency of the signal, GPS L1 (1575.42 MHz), and the distance between transmitter and receiver. 
+  The distance of the reflected path between GPS satellite and TDS-1 has been calculated by using a model of earth’s surface as the well known positions of both satellites.
   Differences of nadir and zenith antenna FSPL and gain show influence of up to 6 dB and −9 dB to 9 dB respectively on the recorded signal strength.
+  The grayed out area in the following plot represents the values later filtered because of the angle filter I mentioned before.
 </p>
-
-<p>
-  After calculation, we can now eliminate the receiver antenna gain and the Free-Space Path loss for each direct and reflected signal. 
-  The grayed out area in the following plot represents the values later filtered because of the angle filter I mentioned before.</p>
 <figure>
   <img src="slaveGainTracks.png" alt="Gain and FSPL for antenna" style="width:100%">
   <figcaption>Gain and FSPL for down-looking antenna</figcaption>
 </figure> 
+<p>
+  After calculation, we can now eliminate the receiver antenna gain and the Free-Space Path loss for each direct and reflected signal. 
+  </p>
+
 <h2>Results</h2>
 <p>
-    The final results should get checked for their reliability, so we also use SMOS Sea Ice Thickness Information by University Hamburg. 
-    On the map on the left SMOS is represented by the blue and white raster data, the red and white dots show the reflectivity. 
-    Even though real in-situ Ground Truth Data seems not available, SMOS ice thickness estimation indicates promising results for PRN 15 over Hudson Bay. 
+  All retrieved reflectivity values are compared to model predictions based on Fresnel coefficients but also to available ancillary truth data
+  For SIT we use <a href="https://icdc.cen.uni-hamburg.de/en/l3c-smos-sit.html"><SMOS Sea Ice Thickness Information by University Hamburg</a>. 
+    On the map below, SMOS is represented by the blue and white raster data, the red and white dots show the reflectivity. 
+    SMOS SIT estimation indicates promising sensitivity for PRN 15 over Hudson Bay. 
     For thinner sea ice, the reflectivity shows expected higher values. 
     The thicker the ice, the less it reflects, which can be seen in the darker red points on the map and also on the correlation plot on the right side.
 </p>
-  <p>
-    PRN 13 will be filtered out because of high nadir angle at receiver antenna, but is plotted also for comparison and you can sense the fluctuating values of gain uncertainties.
-  </p>
   <figure>
   <img src="PowerRatio2020.jpg" alt="A map with calculated power ratios" style="width:100%">
   <figcaption>Calculated power ratio over Hudson bay</figcaption>
 </figure> 
+    <p>
+    PRN 13 will be filtered out because of high nadir angle at receiver antenna, but is plotted also for comparison and you can sense the fluctuating values of gain uncertainties.
+  </p>
   <h2>Discussion of further error terms</h2>
   <p>
     There are further unmodelled error terms. 
